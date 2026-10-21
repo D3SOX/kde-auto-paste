@@ -108,6 +108,7 @@ class PortalCleanupTests(unittest.IsolatedAsyncioTestCase):
         self.app.active_window = {"internalId": "target", "resourceClass": "editor", "caption": "Test"}
         self.app.focus_changed = asyncio.Event()
         self.app.wait_for_target_to_settle = AsyncMock()
+        self.app.klipper_clipboard = Mock(wait_for_newest_entry=AsyncMock())
         self.source = {"internalId": "source", "resourceClass": "org.kde.plasmashell", "caption": "Clipboard Popup"}
 
     def assert_session_closed(self):
